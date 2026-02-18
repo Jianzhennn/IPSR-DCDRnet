@@ -5,4 +5,4 @@
 
 52_Best_demosaick_TxSnew_epoch4107.pth 是best model
 
-本方法基于https://ieeexplore.ieee.org/document/10304085，是本文的一个对比方法。
+本方法基于https://ieeexplore.ieee.org/document/10304085， 是本文的一个对比方法。
