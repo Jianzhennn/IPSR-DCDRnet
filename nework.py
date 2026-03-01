@@ -424,31 +424,6 @@ class RRDB46(nn.Module): # 第二阶段用的RRDB
         out = self.RDB3(out)
         return out.mul(self.res_scale) + x
 
-if __name__ == '__main__':
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = TxSNetsmallnew().to(device)
-    # Polar_Net_backbone
-    # flops, params = get_model_complexity_info(model, (512, 640), as_string=True, print_per_layer_stat=True)
-    # print('Flops: {}'.format(flops))
-    # print('Params: ' + params)
-    # stat(model, [(4, 512, 640), (1, 512, 640)])
 
-    input = torch.rand(1, 4, 240, 320) # DoT 
-    input = torch.tensor(input).cuda()
-    input_raw = torch.rand(1, 1, 240, 320) # DoFP
-    input_raw = torch.tensor(input_raw).cuda()
-    # flops, params = profile(model, inputs=(input,))
-    # print(flops, params)
-    # flops, params = clever_format([flops, params], "%.3f")
-    # out, iout, pout = model(input, guide)
-    dn, HR_4x, HR_4x_stage_1, BI = model([input, input_raw])
-    # out = model(input)
-    # print(model)
-    # print(sum(p.numel() for p in model.parameters()), ' parameters')
-    print(HR_4x.size())
     
-    from torchsummary import summary
-    model = TxSNetsmallnew()
-    summary(model, input_size=(1, 240, 320))
-    
+
